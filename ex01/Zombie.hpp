@@ -8,20 +8,19 @@
 #include <iostream>
 #include <string>
 
-class	Zombie
+class Zombie
 {
 	private:
-		std::string name;
+		std::string	name;
 
 	public:
-		Zombie(std::string setName);
+		Zombie();
 		~Zombie();
-		std::string	getName( void );
-		void announce( void );
+		void	announce( std::string name );
+		void	setName( std::string setName );
 };
 
-// Prototypes
-Zombie	*newZombie( std::string name );
-void	randomChump( std::string name );
+// Prototypes:
+Zombie*	zombieHorde( int N, std::string name );
 
 #endif

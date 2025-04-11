@@ -6,8 +6,7 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 SRC =	main.cpp \
-		infile.cpp \
-		outfile.cpp
+		replace.cpp
 
 OBJ_DIR = obj
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)

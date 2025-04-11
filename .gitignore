@@ -1,4 +1,8 @@
 Consignes.txt
+.vscode
+.~lock.CPP01 explication.odt#
+CPP01 explication.odt
+CPP01.pdf
 
 ex00/obj
 ex00/Zombie
@@ -13,13 +17,13 @@ ex03/obj
 ex03/unnecessaryViolence
 
 ex04/obj
+ex04/test.txt
+ex04/replace
+
 
 ex05/obj
+
 
 ex06/obj
 
 
-.vscode
-.~lock.CPP01 explication.odt#
-CPP01 explication.odt
-CPP01.pdf

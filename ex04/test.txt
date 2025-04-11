@@ -1,0 +1,22 @@
+Hello, world!
+This is a test.txt test file.
+
+Therefore, everytime you need to test something, you may call this test file.
+
+Its name is "test.txt".
+
+Enjoy testing it as much as you wish !
+
+Test it, retest it, that's what it's for. (testing.)
+
+We loooove testing!
+
+We are always tesssssting, and doing all the tests.
+
+
+
+
+
+
+
+

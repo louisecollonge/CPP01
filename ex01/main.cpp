@@ -2,7 +2,7 @@
 
 int	main(void)
 {
-	unsigned int	N = 8;
+	unsigned int	N = 5;
 	std::string		name = "Bimo";
 
 	Zombie* horde = zombieHorde(N, name);

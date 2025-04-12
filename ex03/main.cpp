@@ -20,7 +20,7 @@ int	main(void)
 		jim.attack();
 	}
 	{
-		HumanB	joe("joe");
+		HumanB	joe("Joe");
 		joe.attack();
 		Weapon	blade = Weapon("rusty pink axe");
 		joe.setWeapon(blade);

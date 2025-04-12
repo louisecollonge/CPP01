@@ -2,7 +2,9 @@
 
 int	main(void)
 {
-	randomChump("Jojo");
-	randomChump("Jackie");
-	randomChump("Jose");
+	randomChump("Stackie");
+
+	Zombie	*zHeap = newZombie("Heapie");
+	zHeap->announce();
+	delete (zHeap);
 }

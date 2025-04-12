@@ -19,7 +19,5 @@ bool		outfileCreate( std::ofstream& outfile, const std::string outfileName );
 std::string	getOutfileName( const std::string infileName );
 void		replaceAllStrings( std::ifstream& infile, std::ofstream& outfile,
 			const std::string previous, const std::string replacement );
-// std::string	replaceOneString( std::size_t i, const std::string previous,
-			// const std::string replacement, const std::string outfileLine, std::ofstream& outfile );
 
 #endif

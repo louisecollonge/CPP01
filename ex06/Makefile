@@ -1,6 +1,6 @@
 # Variables
 
-NAME = harl
+NAME = harlFilter
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98

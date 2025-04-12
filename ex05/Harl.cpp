@@ -59,4 +59,3 @@ void	Harl::complain( std::string level )
 	}
 	std::cerr << PINK << "Wrong level..." << RESET << std::endl;
 }
-

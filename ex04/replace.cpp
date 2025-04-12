@@ -8,26 +8,38 @@ std::string	getOutfileName( const std::string infileName )
 }
 
 
-void	openingFile( std::ifstream& infile, const std::string& infileName )
+bool	infileOpen( std::ifstream& infile, const std::string& infileName )
 {
 	infile.open(infileName.c_str());
 	if (!infile.is_open())
-		throw std::runtime_error(std::string(BOLD_RED) + "Error: cannot open infile <" + infileName + ">" + RESET);
+	{
+		std::cerr << BOLD_RED << "Error: cannot open infile" << RESET << std::endl;
+		return (false);
+	}
+	return (true);
 }
 
 
-void	stringsCheck( const std::string previous, const std::string replacement )
+bool	stringsAreValid( const std::string previous, const std::string replacement )
 {
 	if (previous.empty() || replacement.empty())
-		throw std::invalid_argument(std::string(BOLD_RED) + "String(s) cannot be empty" + RESET);
+	{
+		std::cerr << BOLD_RED << "Error: strings arguments cannot be empty" << RESET << std::endl;
+		return (false);
+	}
+	return (true);
 }
 
 
-void	creatingOutfile( std::ofstream& outfile, const std::string outfileName ) // on passe une reference car on ne peut pas copier un stream
+bool	outfileCreate( std::ofstream& outfile, const std::string outfileName ) // on passe une reference car on ne peut pas copier un stream
 {
 	outfile.open(outfileName.c_str());
 	if (!outfile.is_open())
-		throw std::runtime_error(std::string(BOLD_RED) + "Error: cannot create outfile <" + outfileName + ">" + RESET);
+	{
+		std::cerr << BOLD_RED << "Error: cannot create outfile" << RESET << std::endl;
+		return (false);
+	}
+	return (true);
 }
 
 

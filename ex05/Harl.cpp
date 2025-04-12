@@ -39,9 +39,12 @@ void	Harl::error( void )
 }
 
 
+//. pointers' array of methods, returning void, w/o args
+//. this = current objet; 
+//. this->* calls a method in the pointers' array
+//. *functions[i] = derefencement operator to call the method pointed to by functions[i]
 void	Harl::complain( std::string level )
 {
-	// tableau de pointeurs vers fns membres, qui retournent void et ne prennent pas d'argt
 	void (Harl::*functions[])() = { &Harl::debug, 
 									&Harl::info, 
 									&Harl::warning, 
@@ -51,9 +54,7 @@ void	Harl::complain( std::string level )
 	{
 		if (levels[i] == level)
 		{
-			(this->*functions[i])(); // this = objet actuel; 
-									 // this->* appelle une fn membre dans le tableau de pointeurs de fonctions
-									 // ->*functions[i] est l'operateur de dereferencement pour acceder a la fonction pointee par fonctions[i]
+			(this->*functions[i])(); 
 			return ;
 		}
 	}

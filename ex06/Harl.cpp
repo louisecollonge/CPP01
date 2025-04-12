@@ -1,7 +1,5 @@
 #include "Harl.hpp"
 
-#include "Harl.hpp"
-
 Harl::Harl() 
 {
 	levels[0] = "DEBUG";

@@ -28,7 +28,7 @@ clean:
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	rm -f $(OBJ)
+	rm -f $(NAME)
 
 re: fclean all
 

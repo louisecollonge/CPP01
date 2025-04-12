@@ -1,10 +1,15 @@
 #include "replace.hpp"
 
 
-std::string	getOutfileName( const std::string infileName )
+
+bool	stringsAreValid( const std::string previous, const std::string replacement )
 {
-	std::string	outfileName = infileName + ".replace";
-	return (outfileName);
+	if (previous.empty() || replacement.empty())
+	{
+		std::cerr << BOLD_RED << "Error: strings arguments cannot be empty" << RESET << std::endl;
+		return (false);
+	}
+	return (true);
 }
 
 
@@ -20,18 +25,15 @@ bool	infileOpen( std::ifstream& infile, const std::string& infileName )
 }
 
 
-bool	stringsAreValid( const std::string previous, const std::string replacement )
+std::string	getOutfileName( const std::string infileName )
 {
-	if (previous.empty() || replacement.empty())
-	{
-		std::cerr << BOLD_RED << "Error: strings arguments cannot be empty" << RESET << std::endl;
-		return (false);
-	}
-	return (true);
+	std::string	outfileName = infileName + ".replace";
+	return (outfileName);
 }
 
 
-bool	outfileCreate( std::ofstream& outfile, const std::string outfileName ) // on passe une reference car on ne peut pas copier un stream
+// we cannot copy a stream so we pass its reference
+bool	outfileCreate( std::ofstream& outfile, const std::string outfileName )
 {
 	outfile.open(outfileName.c_str());
 	if (!outfile.is_open())
@@ -43,6 +45,10 @@ bool	outfileCreate( std::ofstream& outfile, const std::string outfileName ) // o
 }
 
 
+// store all the file in 1 string: outfileLine
+// found = index where "previous" is found
+// outfileLine.find(previous, found): looking for "previous" starting at index [found]
+// npos: until no "previous" is found anymore
 void	replaceAllStrings( std::ifstream&		infile,
 						   std::ofstream&		outfile,
 						   const std::string	previous,
@@ -54,7 +60,7 @@ void	replaceAllStrings( std::ifstream&		infile,
 	std::size_t	found = 0;
 
 	while (std::getline(infile, line))
-		outfileLine += line + "\n"; // stocker toutes les lignes du infile dans une seule string
+		outfileLine += line + "\n";
 
 	std::size_t	start = 0;
 	while ((found = outfileLine.find(previous, found)) != std::string::npos)
@@ -64,7 +70,7 @@ void	replaceAllStrings( std::ifstream&		infile,
 		start = found + previous.length();
 		found += previous.length();
 	}
-	
-	result.append(outfileLine, start, std::string::npos); // std::string::npos signifie "prend tout ce qui reste"
+	result.append(outfileLine, start, std::string::npos);
+
 	outfile << result;
 }
